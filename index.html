@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url(./assets/happy-valentine-gif-36.gif);
+        }
+        .cont{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 50%;
+        }
+        button{
+            height: 120px;
+            width: 220px;
+            margin: 30px;
+            border: 0px;
+        }
+        .Yes{
+            background-color:rgba(92, 202, 92, 0.863);
+            color: rgb(0, 0, 0);
+            transition: 0.3s;
+        }
+        .Yes:hover{
+            background-color: rgba(43, 122, 43, 0.863);
+            scale: 1.1;
+            background-image: url(./assets/heart-hart.gif);
+        }
+        .No{
+            background-color: rgba(218, 86, 86, 0.658);
+            transition: 0.3s;
+        }
+        .No:hover{
+            background-color: rgba(105, 35, 35, 0.836);
+            scale: 1.1;
+            color: whitesmoke;
+            background-image: url(./assets/2.webp);
+        }
+        p{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <img src="./assets/peach-goma.gif" alt=">.<">
+        <p>Will you Be My Valentine?</p>
+        <div class="buttons">
+            <button class="Yes" id="yesButton">Yes</button>
+            <button class="No" id="noButton">No</button>
+        </div>
+    </div>
+    <script>
+        let yesButton = document.getElementById('yesButton');
+        let noButton = document.getElementById('noButton');
+        let clickCount = 0;
+
+        noButton.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount === 7) {
+                document.body.style.backgroundImage = 'none';
+                document.body.innerHTML = ''; 
+                const p = document.createElement('p');
+                p.textContent = 'mogstyvnia patroni yleo!';
+                p.style.fontSize = '3rem';
+                p.style.fontWeight = 'bold';
+                document.body.appendChild(p);
+            } else {
+                noButton.style.height = (120 - clickCount * 10) + 'px'; 
+                noButton.style.width = (220 - clickCount * 20) + 'px'; 
+            }
+        });
+
+        yesButton.addEventListener('click', function() {
+            document.body.innerHTML = '';
+            const img = document.createElement('img');
+            document.body.style.backgroundImage = 'none';
+            img.src = './assets/cute-cat-couple-c3e5e0pm3rb7ixb3.gif'; 
+            img.style.width = '300px';
+            img.style.height = 'auto'; 
+            document.body.appendChild(img);
+
+            const p = document.createElement('p');
+            p.textContent = '>.<';
+            p.style.fontSize = '3rem';
+            p.style.fontWeight = 'bold';
+            document.body.appendChild(p);
+        });
+    </script>
+</body>
+</html>
